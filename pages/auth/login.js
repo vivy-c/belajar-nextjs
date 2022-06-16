@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Cookie from 'js-cookie';
 import Router from 'next/router';
+import cookies from 'next-cookies';
 
 export async function getServerSideProps(ctx) {
-    console.log(ctx.req.headers.cookie);
+    const allCookies = cookies(ctx);
+
+    console.log(allCookies);
+
+    return{ props : {}}
 }
 
 export default function Login() {
