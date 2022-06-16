@@ -21,7 +21,7 @@ export function authPage(ctx){
         //console.log(allCookies.token);
         if(!allCookies.token)
             return ctx.res.writeHead(302, {
-                Location: '/login'
+                Location: '/auth/login'
             }).end();
 
          return resolve({
