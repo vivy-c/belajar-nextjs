@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Cookie from 'js-cookie';
 import Router from 'next/router';
 
+export async function getServerSideProps(ctx) {
+    console.log(ctx);
+}
+
 export default function Login() {
 
     const [fields, setFields] = useState({
@@ -11,12 +15,7 @@ export default function Login() {
 
     const [status, setStatus] = useState('normal');
 
-    useEffect(() => {
-        //console.log('update');
-        const token = Cookie.get('token');
-        //console.log(token);
-        if(token) return Router.push('/posts');
-    }, []);
+    
 
     async function loginHandler(e) {
         e.preventDefault();
