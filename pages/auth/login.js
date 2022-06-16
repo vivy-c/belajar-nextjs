@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Cookie from 'js-cookie';
+import Router from 'next/router';
 
 export default function Login() {
 
@@ -31,7 +32,11 @@ export default function Login() {
         //console.log(loginRes);
 
         Cookie.set('token',loginRes.token);
+
+        Router.push('/posts');
+
     }
+    
 
     function fieldHandler(e){
         const name = e.target.getAttribute('name');
