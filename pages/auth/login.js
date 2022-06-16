@@ -3,7 +3,7 @@ import Cookie from 'js-cookie';
 import Router from 'next/router';
 
 export async function getServerSideProps(ctx) {
-    console.log(ctx.req.headers);
+    console.log(ctx.req.headers.cookie);
 }
 
 export default function Login() {
