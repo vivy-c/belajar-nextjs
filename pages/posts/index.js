@@ -11,11 +11,15 @@ export async function getServerSideProps(ctx){
     });
 
     const posts = await postReq.json();
-    console.log(posts);
 
-    return { props : {}}
+    return {
+        props: {
+            posts : posts.data
+        }
+    }
 }
-export default function PostIndex(){
+export default function PostIndex(props){
+    console.log(props);
     return (
         <div>
             <h1>Posts</h1>
