@@ -6,7 +6,7 @@ import cookies from 'next-cookies';
 export async function getServerSideProps(ctx) {
     const allCookies = cookies(ctx);
 
-    console.log(allCookies);
+    console.log(allCookies.token);
 
     return{ props : {}}
 }
