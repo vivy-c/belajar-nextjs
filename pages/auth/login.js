@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Cookie from 'js-cookie';
 import Router from 'next/router';
-import cookies from 'next-cookies';
+import { unauthPage } from '../../middlewares/authorizationPage';
 
 export async function getServerSideProps(ctx) {
-    const allCookies = cookies(ctx);
 
-    //console.log(allCookies.token);
-    if(allCookies.token)
-        return ctx.res.writeHead(302, {
-            Location: '/posts'
-        }).end();
-
+    await unauthPage(ctx);
     return{ props : {}}
 }
 
