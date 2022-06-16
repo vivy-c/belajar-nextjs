@@ -1,8 +1,8 @@
 import { authPage } from "../../middlewares/authorizationPage";
 
 export async function getServerSideProps(ctx){
-    const auth = await authPage(ctx);
-    console.log(auth);
+    const { token } = await authPage(ctx);
+    console.log(token);
     return { props : {}}
 }
 export default function PostIndex(){
