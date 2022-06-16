@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Cookie from 'js-cookie';
 import Router from 'next/router';
 
@@ -10,6 +10,13 @@ export default function Login() {
     })
 
     const [status, setStatus] = useState('normal');
+
+    useEffect(() => {
+        //console.log('update');
+        const token = Cookie.get('token');
+        //console.log(token);
+        if(token) return Router.push('/posts');
+    }, []);
 
     async function loginHandler(e) {
         e.preventDefault();
