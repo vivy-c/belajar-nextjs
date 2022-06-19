@@ -6,16 +6,12 @@
 module.exports = {
 
   development: {
-    client: 'mysql',
+    client: 'pg',
     connection: {
-      host : '127.0.0.1',
-      port : 3306,
-      user : 'root',
-      password : '',
-      database : 'fullstack-next'
-    }
+      connectionString: 'postgres://berhjvqckojzuz:53271100b75afe8e251a599a4e16f470c2772696843bb9c4cd2968759765489d@ec2-3-228-236-221.compute-1.amazonaws.com:5432/d8t85vq435vfiq',
+      ssl: { rejectUnauthorized: false },
+    },
   },
-
   staging: {
     client: 'postgresql',
     connection: {

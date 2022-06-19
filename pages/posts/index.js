@@ -6,7 +6,9 @@ export async function getServerSideProps(ctx){
 
     const postReq = await fetch('http://localhost:3000/api/posts', {
         headers : {
-            'Authorization' : 'Bearer ' + token
+            'Authorization' : 'Bearer ' + token,
+            Accept: 'application/json, text/plain, */*',
+            'User-Agent': '*'
         }
     });
 
@@ -23,6 +25,12 @@ export default function PostIndex(props){
     return (
         <div>
             <h1>Posts</h1>
+            
+            { props.posts.map(post => {
+                    return (
+                        <div>{post.title} - {post.id}</div>
+                    );
+            })}
         </div>
     );
-}
+} 
