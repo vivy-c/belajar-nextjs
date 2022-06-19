@@ -16,14 +16,17 @@ export default async function handler (req,res){
     const passwordHash = bcrypt.hashSync(password, salt);
     // console.log(passwordHash);
 
-    const register = await db('users').insert({
-        email,
-        password : passwordHash
-    });
+    const register = await db("users")
+    .insert({
+      email,
+      password: passwordHash,
+    })
+    .returning("id");
+    
+    const registeredUser = await db("users")
+    .where({ id: register[0].id })
+    .first();
 
-    const registeredUser = await db('users')
-                            .where({id:register})
-                            .first();
 
      res.status(200);
      res.json({
